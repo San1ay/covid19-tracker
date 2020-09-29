@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+}
+
+.flag {
+    max-width: 25px;
+    margin-right: 5px;
+}
+
+.gflag {
+    max-width: 16px;
+    margin-right: 5px;
+}
+
+body {
+    background-color: rgb(40, 207, 236);
+}
+
+.app {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
+
+.app_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.app__left {
+    flex: 0.9;
+}
+
+
+
+.app__right__LineGraph {
+
+    margin-top: 15px;
+
+}
+
+.LineGraph {
+    min-height: 220px;
+}
+
+.app__stats {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+}
+
+@media (max-width:850px) {
+    .app {
+        flex-direction: column;
+    }
+}

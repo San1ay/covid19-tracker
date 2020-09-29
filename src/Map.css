@@ -1,0 +1,29 @@
+.map {
+    height: 500px;
+    background-color: aliceblue;
+    padding: 1rem;
+    border-radius: 20px;
+    margin-top: 16px;
+    box-shadow: 0 0 8px -4px rgba(0, 0, 0, 0.5);
+}
+
+.map .leaflet-container {
+    height: 100%;
+}
+
+.info-flag {
+    height: 100px;
+    width: 100%;
+    border-radius: 8px;
+}
+
+.info-name {
+    font-weight: bold;
+}
+
+.info-flag img {
+    max-height: 90px;
+    max-width: 100%;
+    margin-right: 5px;
+    border-radius: 5px;
+}
