@@ -8,6 +8,7 @@ import Table from "./Table";
 import LineGraph from "./LineGraph";
 import { prettyPrintStat } from "./util";
 import "leaflet/dist/leaflet.css";
+import { Sugar } from "react-preloaders";
 // import Footer from "./Footer";
 
 export default function App() {
@@ -19,8 +20,10 @@ export default function App() {
   const [mapZoom, setMapZoom] = useState(5);
   const [mapCountries, setMapCountries] = useState([]);
   const [casesType, setCasesType] = useState("cases");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     const getCountriesData = async () => {
       await fetch("https://disease.sh/v3/covid-19/countries")
         .then((res) => res.json())
@@ -30,6 +33,7 @@ export default function App() {
             value: country.countryInfo.iso2,
             flag: country.countryInfo.flag,
           }));
+          setLoading(false);
           setTableData(data);
           setCountries(con);
           setMapCountries(data);
@@ -59,6 +63,11 @@ export default function App() {
 
   return (
     <>
+      <Sugar
+        customLoading={loading}
+        animation="slide"
+        background="rgb(40, 207, 236)"
+      />
       <div className="app">
         <div className="app__left">
           <div className="app_header">
