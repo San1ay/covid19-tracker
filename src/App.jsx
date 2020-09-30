@@ -137,6 +137,7 @@ export default function App() {
             <div className="app__right__Table">
               <h1>Total {casesType} by Country</h1>
               <Table
+                worldcases={countryInfo}
                 countries={tableData}
                 onClick={onCountryChange}
                 caseType={casesType}

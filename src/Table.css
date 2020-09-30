@@ -4,6 +4,7 @@
     height: 400px;
     color: red;
     background-color: white;
+    overflow-x: hidden;
 }
 
 .table tr {
@@ -14,9 +15,9 @@
 }
 
 .table td {
-    padding: 0.2rem;
+    padding: 0.1rem;
 }
 
 .table tr:nth-of-type(odd) {
-    background-color: rgba(255, 255, 255, 0.884);
+    background-color: rgba(104, 228, 207, 0.363);
 }
