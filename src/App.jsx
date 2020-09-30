@@ -9,6 +9,8 @@ import LineGraph from "./LineGraph";
 import { prettyPrintStat } from "./util";
 import "leaflet/dist/leaflet.css";
 import { Sugar } from "react-preloaders";
+import numeral from "numeral";
+
 // import Footer from "./Footer";
 
 export default function App() {
@@ -106,14 +108,14 @@ export default function App() {
               onClick={(e) => setCasesType("cases")}
               title="Coronavirus Cases"
               cases={prettyPrintStat(countryInfo.todayCases)}
-              total={countryInfo.cases}
+              total={numeral(countryInfo.cases).format("0,0")}
             ></InfoBox>
             <InfoBox
               active={casesType === "recovered"}
               onClick={(e) => setCasesType("recovered")}
               title="Recovered"
               cases={prettyPrintStat(countryInfo.todayRecovered)}
-              total={countryInfo.recovered}
+              total={numeral(countryInfo.recovered).format("0,0")}
             ></InfoBox>
             <InfoBox
               isRed
@@ -121,7 +123,7 @@ export default function App() {
               active={casesType === "deaths"}
               onClick={(e) => setCasesType("deaths")}
               cases={prettyPrintStat(countryInfo.todayDeaths)}
-              total={countryInfo.deaths}
+              total={numeral(countryInfo.deaths).format("0,0")}
             ></InfoBox>
           </div>
 
