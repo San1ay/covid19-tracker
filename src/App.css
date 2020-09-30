@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    text-align: center;
 }
 
 .flag {
@@ -19,14 +20,16 @@ body {
 .app {
     display: flex;
     justify-content: space-evenly;
-    margin-top: 10px;
-    padding-top: 20px;
+    padding-top: 5px;
+}
+
+h1.title {
+    margin: 10px;
 }
 
 .app_header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 20px;
 }
 
@@ -37,7 +40,6 @@ body {
 
 
 .app__right__LineGraph {
-
     margin-top: 15px;
 
 }
@@ -56,5 +58,22 @@ body {
 @media (max-width:850px) {
     .app {
         flex-direction: column;
+    }
+
+    h2.api_desp {
+        max-width: 60%;
+        font-size: large;
+    }
+
+    .app__right__Table h1 {
+        font-size: larger;
+    }
+
+    .app__right__LineGraph h3 {
+        font-size: larger;
+    }
+
+    .map {
+        max-height: 400px;
     }
 }

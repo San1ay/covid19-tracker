@@ -67,17 +67,17 @@ export default function App() {
     <>
       <Sugar
         customLoading={loading}
-        animation="slide"
+        animation="fade"
         background="rgb(40, 207, 236)"
       />
+      <h1 className="title">COVID-19 Tracker</h1>
       <div className="app">
         <div className="app__left">
           <div className="app_header">
-            <h1>COVID-19 Tracker</h1>
-            <h3>
+            <h2 className="api_desp">
               Data are pulled from Worldometer
               <br /> (disease.sh API)
-            </h3>
+            </h2>
             <FormControl key="f" className="app__dropdown">
               <Select
                 variant="outlined"
@@ -126,7 +126,6 @@ export default function App() {
               total={numeral(countryInfo.deaths).format("0,0")}
             ></InfoBox>
           </div>
-
           <Map
             casesType={casesType}
             center={mapCenter}
