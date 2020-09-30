@@ -19,6 +19,7 @@ body {
 .app {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 10px;
     padding-top: 20px;
 }
 
