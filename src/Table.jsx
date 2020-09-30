@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Table.css";
 import numeral from "numeral";
 import { sortData } from "./util";
-export default function Table({ worldcases, onClick, countries, caseType }) {
+export default function Table({ onClick, countries, caseType }) {
   const sortedCoutries = sortData(countries, caseType);
+  const [worldData, setworldData] = useState(0);
+  useEffect(() => {
+    fetch("https://disease.sh/v3/covid-19/all")
+      .then((res) => res.json())
+      .then((data) => setworldData(data));
+  }, []);
+
   return (
     <div className="table">
       <tr onClick={() => onClick("worldwide")}>
@@ -11,9 +18,7 @@ export default function Table({ worldcases, onClick, countries, caseType }) {
           <img className="flag" src="world_image.png" alt="Globe" />
           Worldwide
         </td>
-        <strong>
-          {<td>{numeral(worldcases[caseType]).format("0,0")}</td>}
-        </strong>
+        <strong>{<td>{numeral(worldData[caseType]).format("0,0")}</td>}</strong>
       </tr>
       {sortedCoutries.map(({ countryInfo, country, [caseType]: cases }) => (
         <tr onClick={() => onClick(countryInfo.iso2)}>
