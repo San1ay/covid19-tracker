@@ -4,7 +4,8 @@
 
 #
 
-![Image of Deployed App](/Screenshot.png)
+![Image of Deployed App](/Screenshot%20Light%20Mode.png)
+![Image of Deployed App](/Screenshot%20Dark%20Mode.png)
 
 ## All Data are pulled from Woldometer
 
