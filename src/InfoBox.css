@@ -30,3 +30,7 @@
 .infoBox__cases.InfoBox__cases--green {
     color: green !important;
 }
+
+.infoBox__cases.InfoBox__cases--green.dark {
+    color: rgb(8, 245, 8) !important;
+}

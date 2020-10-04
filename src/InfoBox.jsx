@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardContent, Typography } from "@material-ui/core";
-export default function InfoBox({ title, cases, total, ...props }) {
+export default function InfoBox({ darkMode, title, cases, total, ...props }) {
   return (
     <Card
       onClick={props.onClick}
@@ -9,17 +9,23 @@ export default function InfoBox({ title, cases, total, ...props }) {
       }`}
     >
       <CardContent>
-        <Typography className="infoBox__title" color="textSecondary">
+        <Typography
+          className="infoBox__title"
+          color={darkMode ? "textPrimary" : "textSecondary"}
+        >
           {title}
         </Typography>
         <h2
           className={`infoBox__cases ${
             !props.isRed && "InfoBox__cases--green"
-          }`}
+          } ${darkMode ? "dark" : "light"}`}
         >
           {cases}
         </h2>
-        <Typography className="infoBox__total" color="textSecondary">
+        <Typography
+          className="infoBox__total"
+          color={darkMode ? "textPrimary" : "textSecondary"}
+        >
           {total} total
         </Typography>
       </CardContent>

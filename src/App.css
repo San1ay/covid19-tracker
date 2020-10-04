@@ -3,6 +3,10 @@
     text-align: center;
 }
 
+.dark {
+    color: white;
+}
+
 .flag {
     max-width: 25px;
     margin-right: 5px;
@@ -13,8 +17,14 @@
     margin-right: 5px;
 }
 
-body {
-    background-color: rgb(40, 207, 236);
+.main-body.light {
+    background-color: #ebebf5;
+    transition: 1s ease-out;
+}
+
+.main-body.dark {
+    transition: 1s ease-out;
+    background-color: hsla(240, 23%, 9%, 0.89);
 }
 
 .app {
@@ -24,7 +34,7 @@ body {
 }
 
 h1.title {
-    margin: 10px;
+    padding: 10px;
 }
 
 .app_header {
@@ -37,11 +47,8 @@ h1.title {
     flex: 0.9;
 }
 
-
-
 .app__right__LineGraph {
     margin-top: 15px;
-
 }
 
 .LineGraph {
@@ -52,17 +59,45 @@ h1.title {
     display: flex;
     justify-content: space-between;
     align-content: center;
-
 }
 
-@media (max-width:850px) {
+button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: large;
+    background-color: rgba(0, 0, 0, 0.842);
+    color: white;
+    /* float: right; */
+}
+
+button.toggleColor.dark {
+    background-color: rgba(240, 233, 233, 0.856);
+    color: rgb(15, 14, 14);
+}
+
+@media (max-width: 850px) {
     .app {
         flex-direction: column;
     }
 
-    h2.api_desp {
-        max-width: 60%;
+    h1.title {
+        text-align: left;
         font-size: large;
+        padding-top: 10px;
+        margin-left: 2rem;
+    }
+
+    button {
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        font-size: large;
+        /* float: right; */
+    }
+
+    h2.api_desp {
+        font-size: medium;
     }
 
     .app__right__Table h1 {
@@ -75,5 +110,15 @@ h1.title {
 
     .map {
         max-height: 400px;
+    }
+}
+
+@media (max-width: 850px) and (min-width: 400px) {
+    h2.api_desp {
+        margin-left: 20px;
+    }
+
+    h1.title {
+        text-align: center;
     }
 }

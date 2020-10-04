@@ -7,6 +7,11 @@
     overflow-x: hidden;
 }
 
+.table.dark {
+    background-color: rgba(58, 46, 46, 0.616);
+    color: whitesmoke;
+}
+
 .table tr {
     display: flex;
     justify-content: space-between;
@@ -20,4 +25,8 @@
 
 .table tr:nth-of-type(odd) {
     background-color: rgba(104, 228, 207, 0.363);
+}
+
+.table.dark tr:nth-of-type(odd) {
+    background-color: rgba(41, 83, 90, 0.5);
 }

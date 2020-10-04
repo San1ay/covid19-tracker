@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Table.css";
 import numeral from "numeral";
 import { sortData } from "./util";
-export default function Table({ onClick, countries, caseType }) {
+export default function Table({ darkMode, onClick, countries, caseType }) {
   const sortedCoutries = sortData(countries, caseType);
   const [worldData, setworldData] = useState(0);
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function Table({ onClick, countries, caseType }) {
   }, []);
 
   return (
-    <div className="table">
+    <div className={`table ${darkMode ? "dark" : ""}`}>
       <tr onClick={() => onClick("worldwide")}>
         <td>
           <img className="flag" src="world_image.png" alt="Globe" />

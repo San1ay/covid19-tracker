@@ -2,53 +2,58 @@ import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 import numeral from "numeral";
 // import { red } from "@material-ui/core/colors";
-const options = {
-  legend: {
-    display: false,
-  },
-  elements: {
-    point: {
-      radius: 0,
+
+export default function LineGraph({ darkMode, caseType, country = "all" }) {
+  const [data, setData] = useState({});
+  const options = {
+    legend: {
+      display: false,
     },
-  },
-  maintainAspectRatio: false,
-  tooltips: {
-    mode: "index",
-    intersect: false,
-    callbacks: {
-      label: function (tooltipItem, data) {
-        return numeral(tooltipItem.value).format("+0,0");
+    elements: {
+      point: {
+        radius: 0,
       },
     },
-  },
-  scales: {
-    xAxes: [
-      {
-        type: "time",
-        time: {
-          format: "MM/DD/YY",
-          tooltipFormat: "ll",
+    maintainAspectRatio: false,
+    tooltips: {
+      mode: "index",
+      intersect: false,
+      callbacks: {
+        label: function (tooltipItem, data) {
+          return numeral(tooltipItem.value).format("+0,0");
         },
       },
-    ],
-    yAxes: [
-      {
-        gridLines: {
-          display: false,
-        },
-        ticks: {
-          // Include a dollar sign in the ticks
-          callback: function (value, index, values) {
-            return numeral(value).format("0a");
+    },
+    scales: {
+      xAxes: [
+        {
+          ticks: {
+            fontColor: darkMode ? "white" : "black",
+          },
+          type: "time",
+          time: {
+            format: "MM/DD/YY",
+            tooltipFormat: "ll",
           },
         },
-      },
-    ],
-  },
-};
+      ],
+      yAxes: [
+        {
+          gridLines: {
+            display: false,
+          },
+          ticks: {
+            fontColor: darkMode ? "white" : "black",
+            // Include a dollar sign in the ticks
+            callback: function (value, index, values) {
+              return numeral(value).format("0a");
+            },
+          },
+        },
+      ],
+    },
+  };
 
-export default function LineGraph({ caseType, country = "all" }) {
-  const [data, setData] = useState({});
   //"https://disease.sh/v3/covid-19//all?lastdays=30"
 
   const buildChartData = (data, dataType = "cases") => {
